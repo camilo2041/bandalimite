@@ -1,0 +1,35 @@
+---
+const members = [
+  { img: '/uploads/media/member-1.jpeg', name: 'Andrés',    role: 'Vocalista & Acordeonista' },
+  { img: '/uploads/media/member-2.jpeg', name: 'Guitarrista', role: 'Guitarra Norteña' },
+  { img: '/uploads/media/member-3.jpeg', name: 'Bajista',   role: 'Bajo Eléctrico' },
+  { img: '/uploads/media/member-4.jpeg', name: 'Percusión', role: 'Percusión' },
+];
+---
+
+<section class="banda-section" id="la-banda">
+  <div style="text-align:center;margin-bottom:48px;">
+    <p class="section-label">Los Músicos</p>
+    <h2 class="section-heading">La Banda</h2>
+    <div class="gold-divider"><span class="star">&#9733;</span></div>
+  </div>
+
+  <div
+    class="banda-photo"
+    style="background-image: url('/uploads/media/hero-bg.jpeg');"
+    role="img"
+    aria-label="Andrés y Su Banda Límite, foto de grupo"
+  ></div>
+
+  <div class="band-grid">
+    {members.map((m, i) => (
+      <div class={`member-card${i === 0 ? ' featured' : ''}`}>
+        <img src={m.img} alt={m.name} loading="lazy" />
+        <div class="member-overlay">
+          <div class="member-name">{m.name}</div>
+          <div class="member-role">{m.role}</div>
+        </div>
+      </div>
+    ))}
+  </div>
+</section>

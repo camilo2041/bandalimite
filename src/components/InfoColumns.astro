@@ -1,0 +1,78 @@
+---
+const dates = [
+  { day: '25', month: 'Jul', city: 'Bogotá, DC',       venue: 'Salón de Eventos' },
+  { day: '09', month: 'Ago', city: 'Medellín, ANT',    venue: 'Club Campestre' },
+  { day: '23', month: 'Ago', city: 'Cali, VAL',        venue: 'Centro de Eventos' },
+  { day: '14', month: 'Sep', city: 'Barranquilla, ATL', venue: 'Hotel Caribe' },
+];
+
+const gallery = [
+  '/uploads/media/gallery-1.jpeg',
+  '/uploads/media/gallery-2.jpeg',
+  '/uploads/media/gallery-3.jpeg',
+  '/uploads/media/gallery-4.jpeg',
+  '/uploads/media/gallery-5.jpeg',
+  '/uploads/media/gallery-6.jpeg',
+];
+---
+
+<section class="info-section" id="musica">
+  <div class="info-cols">
+
+    <!-- Música -->
+    <div class="info-col">
+      <p class="col-label">Nuestra Música</p>
+      <div class="music-card">
+        <div class="music-thumb">
+          <img src="/uploads/media/music-thumb.jpeg" alt="Banda Límite" />
+        </div>
+        <div class="music-info">
+          <p class="music-name">Banda Límite</p>
+          <p class="music-subtitle">Norteña Colombiana</p>
+          <ul class="genre-list">
+            <li class="genre-item">· Norteño</li>
+            <li class="genre-item">· Popular</li>
+            <li class="genre-item">· Regional Mexicano</li>
+            <li class="genre-item">· Tropical</li>
+            <li class="genre-item">· Carranguero</li>
+          </ul>
+          <p class="repertoire-note">+ Corridos y éxitos del momento</p>
+        </div>
+      </div>
+      <a href="#videos" class="more-photos-link">Ver nuestros videos →</a>
+    </div>
+
+    <!-- Próximas fechas -->
+    <div class="info-col">
+      <p class="col-label">Próximas Fechas</p>
+      <div class="cal-grid">
+        {dates.map(d => (
+          <div class="cal-card">
+            <div class="cal-month-band">{d.month}</div>
+            <div class="cal-day">{d.day}</div>
+            <div class="cal-body">
+              <div class="cal-city">{d.city}</div>
+              <div class="cal-venue">{d.venue}</div>
+              <a href="#contrataciones" class="date-info-btn">Info</a>
+            </div>
+          </div>
+        ))}
+      </div>
+      <a href="#contrataciones" class="availability-link">Ver disponibilidad completa →</a>
+    </div>
+
+    <!-- Galería -->
+    <div class="info-col">
+      <p class="col-label">Galería</p>
+      <div class="gal-mini">
+        {gallery.map((src, i) => (
+          <div class={`gallery-item${i === 0 ? ' big' : ''}`}>
+            <img class="gal-img" src={src} alt={`Foto ${i + 1}`} loading="lazy" />
+          </div>
+        ))}
+      </div>
+      <a href="#contrataciones" class="more-photos-link">Ver más fotos →</a>
+    </div>
+
+  </div>
+</section>

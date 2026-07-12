@@ -1,0 +1,64 @@
+---
+const values = [
+  {
+    icon: 'acordeon',
+    title: 'Autenticidad',
+    text:  'Música norteña colombiana en su forma más pura, preservando la tradición musical del país.',
+  },
+  {
+    icon: 'estrella',
+    title: 'Excelencia',
+    text:  'Cada presentación es una experiencia única con los más altos estándares de calidad artística.',
+  },
+  {
+    icon: 'corazon',
+    title: 'Pasión',
+    text:  'El amor por la música norteña se refleja en cada nota y cada actuación en vivo.',
+  },
+  {
+    icon: 'medalla',
+    title: 'Profesionalismo',
+    text:  'Puntualidad, responsabilidad y compromiso en cada contrato y presentación.',
+  },
+];
+---
+
+<section class="values-section">
+  <div style="text-align:center;margin-bottom:56px;">
+    <p class="section-label">Lo que nos define</p>
+    <h2 class="section-heading">Nuestros Valores</h2>
+    <div class="gold-divider"><span class="star">&#9733;</span></div>
+  </div>
+
+  <div class="values-grid">
+    {values.map(v => (
+      <div class="value-item">
+        <div class="value-icon">
+          {v.icon === 'acordeon' && (
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="4" y="3" width="6" height="18" rx="1"/><rect x="14" y="3" width="6" height="18" rx="1"/>
+              <path d="M10 6h4M10 9h4M10 12h4M10 15h4M10 18h4"/>
+            </svg>
+          )}
+          {v.icon === 'estrella' && (
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 2l2.9 6.6 7.1.6-5.4 4.7 1.6 7-6.2-3.8L5.8 21l1.6-7-5.4-4.7 7.1-.6L12 2z"/>
+            </svg>
+          )}
+          {v.icon === 'corazon' && (
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.6l-1-1a5.5 5.5 0 0 0-7.8 7.8l1 1L12 21l7.8-7.6 1-1a5.5 5.5 0 0 0 0-7.8z"/>
+            </svg>
+          )}
+          {v.icon === 'medalla' && (
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="9" r="6"/><path d="M8.5 14 7 22l5-2.5L17 22l-1.5-8"/>
+            </svg>
+          )}
+        </div>
+        <div class="value-title">{v.title}</div>
+        <p class="value-text">{v.text}</p>
+      </div>
+    ))}
+  </div>
+</section>

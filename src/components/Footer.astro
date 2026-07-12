@@ -1,0 +1,57 @@
+---
+const nav = [
+  { href: '#musica',   label: 'Música' },
+  { href: '#videos',   label: 'Videos' },
+  { href: '#la-banda', label: 'La Banda' },
+  { href: '#contrataciones', label: 'Contrataciones' },
+];
+
+// TODO: reemplazar con las URLs reales de los perfiles de la banda
+const socials = [
+  { href: 'https://www.instagram.com', label: 'Instagram' },
+  { href: 'https://www.facebook.com',  label: 'Facebook' },
+  { href: 'https://www.tiktok.com',    label: 'TikTok' },
+  { href: 'https://www.youtube.com',   label: 'YouTube' },
+];
+
+const year = new Date().getFullYear();
+---
+
+<footer class="footer">
+  <div class="footer-inner">
+
+    <div class="footer-brand">
+      <img class="footer-logo" src="/uploads/media/logo.jpeg" alt="Banda Límite" />
+      <p class="footer-band-name">Andrés y Su Banda Límite</p>
+      <p class="footer-tagline">Música norteña colombiana con alma y tradición.</p>
+    </div>
+
+    <div>
+      <p class="footer-col-label">Navegación</p>
+      <nav class="footer-nav">
+        {nav.map(l => <a href={l.href} class="foot-link">{l.label}</a>)}
+      </nav>
+    </div>
+
+    <div>
+      <p class="footer-col-label">Redes Sociales</p>
+      <div class="footer-socials">
+        {socials.map(s => <a href={s.href} target="_blank" rel="noopener" class="foot-social">{s.label}</a>)}
+      </div>
+    </div>
+
+    <div>
+      <p class="footer-col-label">Contacto</p>
+      <p class="footer-contact-info">Colombia</p>
+      <p class="footer-contact-info">+57 322 327 2593</p>
+      <p class="footer-contact-info" style="margin-top:14px;">contacto@bandalimite.com</p>
+    </div>
+
+  </div>
+
+  <div class="footer-bottom">
+    <p class="footer-copy">
+      &copy; {year} Andrés y Su Banda Límite &mdash; Todos los derechos reservados
+    </p>
+  </div>
+</footer>
