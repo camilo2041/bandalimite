@@ -8,15 +8,20 @@ services:
       - traefik-public
 
     labels:
+      - "createdBy=Apps"
       - "traefik.enable=true"
+      # Indicamos a Traefik qué red usar para llegar a este contenedor
       - "traefik.docker.network=traefik-public"
-
-      - "traefik.http.routers.barcam.rule=Host(`www.barcam.site`)"
+      # Configuración del Router
+      - "traefik.http.routers.barcam.rule=Host(`bandalimite.barcam.site`)"
       - "traefik.http.routers.barcam.entrypoints=websecure"
       - "traefik.http.routers.barcam.tls=true"
       - "traefik.http.routers.barcam.tls.certresolver=mi-resuelves-ssl"
-
+      # Puerto de destino
       - "traefik.http.services.barcam.loadbalancer.server.port=80"
+      # Middleware para evitar el bucle de redirección (Error 504/308)
+      - "traefik.http.routers.barcam.middlewares=barcam-headers"
+      - "traefik.http.middlewares.barcam-headers.headers.customrequestheaders.X-Forwarded-Proto=https"
 
 networks:
   traefik-public:
